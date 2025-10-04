@@ -4,40 +4,6 @@ import datetime
 from mobility.backend.schemas import vehicle_status_history
 import hashlib
 
-# class Curr_Bike2(BaseModel):
-            
-#         bike_id: str
-#         lat: float
-#         lon: float
-#         current_range: float
-#         vehicle_type: int
-#         last_reported: int
-
-#         @field_validator('bike_id')
-#         @classmethod
-#         def ensure_not_empty(cls,value):
-#             if not value.strip():
-#                 raise ValueError('Field cannot be empty')
-#             return value
-        
-# class Curr_Bike3(BaseModel):
-        
-#         vehicle_id: str
-#         lat: float
-#         lon: float
-#         current_range_meters: float
-#         current_fuel_percent: float
-#         vehicle_type: int
-#         last_reported: int
-
-#         @field_validator('vehicle_id')
-#         @classmethod
-#         def ensure_not_empty(cls,value):
-#             if not value.strip():
-#                 raise ValueError('Field cannot be empty')
-#             return value
-        
-
 
 class System:
     """Class used to model the data system available.
@@ -129,16 +95,6 @@ class Cleaner():
         else:
             return
             
-    def clean_to_push(self, schema):
-        
-        if schema == vehicle_status_history:
-            return vehicle_status_history(
-                owning_system=self.owning_id,
-
-
-            )
-
-
 
     def clean_epoch(self, epoch: int):
         timestamp = datetime.datetime.fromtimestamp(epoch)
